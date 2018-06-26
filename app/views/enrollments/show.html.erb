@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @enrollment.date %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @enrollment.method %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @enrollment.remarks %>
+</p>
+
+<p>
+  <strong>Coordinator:</strong>
+  <%= @enrollment.coordinator %>
+</p>
+
+<p>
+  <strong>Registry:</strong>
+  <%= @enrollment.registry %>
+</p>
+
+<p>
+  <strong>Participant:</strong>
+  <%= @enrollment.participant %>
+</p>
+
+<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
+<%= link_to 'Back', enrollments_path %>

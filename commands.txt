@@ -325,4 +325,338 @@ Exiting
 [1m[37m      invoke[0m    jbuilder
 [1m[32m      create[0m      app/views/coordinators/index.json.jbuilder
 [1m[32m      create[0m      app/views/coordinators/show.json.jbuilder
-[1m[32m      create[0m      app/views/coordin
+[1m[32m      create[0m      app/views/coordinators/_coordinator.json.jbuilder
+[1m[37m      invoke[0m  test_unit
+[1m[32m      create[0m    test/system/coordinators_test.rb
+[1m[37m      invoke[0m  assets
+[1m[37m      invoke[0m    coffee
+[1m[32m      create[0m      app/assets/javascripts/coordinators.coffee
+[1m[37m      invoke[0m    scss
+[1m[32m      create[0m      app/assets/stylesheets/coordinators.scss
+[1m[37m      invoke[0m  scss
+[1m[34m   identical[0m    app/assets/stylesheets/scaffolds.scss
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git st
+]0;git st - ~/jobtestgit: 'st' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	status
+	reset
+	stage
+	stash
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git status
+]0;git status - ~/jobtestOn branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   commands.txt[m
+	[31mmodified:   config/routes.rb[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mapp/assets/javascripts/coordinators.coffee[m
+	[31mapp/assets/stylesheets/coordinators.scss[m
+	[31mapp/controllers/coordinators_controller.rb[m
+	[31mapp/helpers/coordinators_helper.rb[m
+	[31mapp/models/coordinator.rb[m
+	[31mapp/views/coordinators/[m
+	[31mdb/migrate/20180626184841_create_coordinators.rb[m
+	[31mdb/schema.rb[m
+	[31mtest/controllers/coordinators_controller_test.rb[m
+	[31mtest/fixtures/coordinators.yml[m
+	[31mtest/models/coordinator_test.rb[m
+	[31mtest/system/coordinators_test.rb[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git add .
+]0;git add . - ~/jobtest]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git commit -am 'Added Coordinator model'
+]0;git commit -am 'Added Coordinator model' - ~/jobtest[master 7e81920] Added Coordinator model
+ 21 files changed, 541 insertions(+), 1 deletion(-)
+ create mode 100644 app/assets/javascripts/coordinators.coffee
+ create mode 100644 app/assets/stylesheets/coordinators.scss
+ create mode 100644 app/controllers/coordinators_controller.rb
+ create mode 100644 app/helpers/coordinators_helper.rb
+ create mode 100644 app/models/coordinator.rb
+ create mode 100644 app/views/coordinators/_coordinator.json.jbuilder
+ create mode 100644 app/views/coordinators/_form.html.erb
+ create mode 100644 app/views/coordinators/edit.html.erb
+ create mode 100644 app/views/coordinators/index.html.erb
+ create mode 100644 app/views/coordinators/index.json.jbuilder
+ create mode 100644 app/views/coordinators/new.html.erb
+ create mode 100644 app/views/coordinators/show.html.erb
+ create mode 100644 app/views/coordinators/show.json.jbuilder
+ create mode 100644 db/migrate/20180626184841_create_coordinators.rb
+ create mode 100644 db/schema.rb
+ create mode 100644 test/controllers/coordinators_controller_test.rb
+ create mode 100644 test/fixtures/coordinators.yml
+ create mode 100644 test/models/coordinator_test.rb
+ create mode 100644 test/system/coordinators_test.rb
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails s
+]0;rails s - ~/jobtest=> Booting Puma
+=> Rails 5.1.6 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.11.4 (ruby 2.5.1-p57), codename: Love Song
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:49:19 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2018-06-26 18:49:26 +0000 ===
+- Goodbye!
+Exiting
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails sgit commit -am 'Added Coordinator model'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cadd .[Kstatus[Krails generate scaffold Coordinator name:string phone:string[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs[Kdb:migrate RAILS_ENV=development
+]0;rails db:migrate RAILS_ENV=development - ~/jobtest== 20180626184841 CreateCoordinators: migrating ===============================
+-- create_table(:coordinators)
+   -> 0.0012s
+== 20180626184841 CreateCoordinators: migrated (0.0012s) ======================
+
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ vim mod[K[K[K[Kap[K[K app/models/
+application_record.rb  coordinator.rb         
+concerns/              registry.rb            
+]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ vim app/models/registry.rb 
+]0;vim app/models/registry.rb - ~/jobtest[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;25r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[25;1H"app/models/registry.rb" 2L, 39C[>c[1;1H[35mclass[m [32mRegistry[m < [32mApplicationRecord[m
+[35mend[m
+[94m~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [24;1H~                                                                               [m[25;63H1,1[11CAll[1;1H[?12l[?25h[?25l[25;1H[1m-- INSERT --[m[25;13H[K[25;63H2,1[11CTop[2;24r[2;1H[L[1;25r[25;63H[K[25;63H2,1[11CAll[2;1H[?12l[?25h[?25l[25;65H2-9[2;9H[?12l[?25h[?25l[25;65H1  [2;1H[?12l[?25h[?25l[25;65H2[2;2H[?12l[?25h[?25l[25;65H3[2;3H[?12l[?25h[?25l[25;65H4[2;4H[?12l[?25h[?25l[25;65H5[2;5H[?12l[?25h[?25l[
+end[25;65H6[2;6H[?12l[?25h[?25l[2;5H[K[3;1H[35mend[m[25;65H5[2;5H[?12l[?25h[25;1H[K[?25l[25;63H2,4[11CAll[2;4H[?12l[?25h[?25l[25;63H[K[25;1H:[?12l[?25hs[?25l[?12l[?25he[?25l[?12l[?25ht[?25l[?12l[?25h[?25l [?12l[?25he[?25l[?12l[?25ht[?25l[?12l[?25h[?25l[62C2,4[11CAll[2;4H[?12l[?25h[?25l[25;1H[1m-- INSERT --[m[25;63H[K[25;63H2,5[11CAll[2;5H[?12l[?25h[?25lh[25;65H6[2;6H[?12l[?25h[?25la[25;65H7[2;7H[?12l[?25h[?25ls[25;65H8[2;8H[?12l[?25h[?25l_[25;65H9[2;9H[?12l[?25h[?25la[25;65H10[2;10H[?12l[?25h[?25ln[25;66H1[2;11H[?12l[?25h[?25ld[25;66H2[2;12H[?12l[?25h[?25l_[25;66H3[2;13H[?12l[?25h[?25lb[25;66H4[2;14H[?12l[?25h[?25le[25;66H5[2;15H[?12l[?25h[?25ll[25;66H6[2;16H[?12l[?25h[?25lo[25;66H7[2;17H[?12l[?25h[?25ln[25;66H8[2;18H[?12l[?25h[?25lgs[25;65H20[2;20H[?12l[?25h[?25l_[25;66H1[2;21H[?12l[?25h[?25lt[25;66H2[2;22H[?12l[?25h[?25lo[25;66H3[2;23H[?12l[?25h[?25l_[25;66H4[2;24H[?12l[?25h[?25lm[25;66H5[2;25H[?12l[?25h[?25la[25;66H6[2;26H[?12l[?25h[?25ln[25;66H7[2;27H[?12l[?25h[?25ly[25;66H8[2;28H[?12l[?25h[?25l[25;66H9[2;29H[?12l[?25h[?25l:[25;65H30[2;30H[?12l[?25h[?25l[31m:c[m[25;66H1[2;31H[?12l[?25h[?25l[31mo[m[25;66H2[2;32H[?12l[?25h[?25l[31mo[m[25;66H3[2;33H[?12l[?25h[?25l[31mr[m[25;66H4[2;34H[?12l[?25h[?25l[31md[m[25;66H5[2;35H[?12l[?25h[?25l[31mi[m[25;66H6[2;36H[?12l[?25h[?25l[31mn[m[25;66H7[2;37H[?12l[?25h[?25l[31ma[m[25;66H8[2;38H[?12l[?25h[?25l[31mt[m[25;66H9[2;39H[?12l[?25h[?25l[31mo[m[25;65H40[2;40H[?12l[?25h[?25l[31mr[m[25;66H1[2;41H[?12l[?25h[25;1H[K[2;40H[?25l[25;63H2,40[10CAll[2;40H[?12l[?25h[?25l[25;63H1,34[1;34H[?12l[?25h[?25l[25;63H2,40[2;40H[?12l[?25h[?25l[25;63H[K[25;1H:[?12l[?25hs[?25l[?12l[?25hp[?25l[?12l[?25h[?25l [?12l[?25ha[?25l[?12l[?25hp[?25l[?12l[?25hp[?25l[?12l[?25h/[?25l[?12l[?25hm[?25l[?12l[?25ho[?25l[?12l[?25hd[?25l[?12l[?25h...[?25lels/[?12l[?25hc[?25l[?12l[?25ho[?25l[?12l[?25h...[?25lncerns/[?12l[?25h[?25l[25;24H[K[25;24H[?12l[?25h[?25l[25;23H[K[25;23H[?12l[?25h[?25l[25;22H[K[25;22H[?12l[?25h[?25l[25;21H[K[25;21H[?12l[?25h[?25l[25;20H[K[25;20H[?12l[?25h[?25l[25;19H[K[25;19H[?12l[?25h[?25l[25;18H[K[25;18H[?12l[?25h[?25l[25;17H[K[25;17H[?12l[?25ho[?25l[?12l[?25h...[?25lncerns/[?12l[?25h...[?25l[25;18Hordinator.rb[?12l[?25h[?25l[25;29H[K[25;29H[?12l[?25h[?25l[25;28H[K[25;28H[?12l[?25h...[?25lrb[25;30H[K[25;30H[?12l[?25h[?25l"app/models/coordinator.rb" [25;29H[K[25;29H2L, 42C[1;7H[32mCoordinator[m < [32mApplicationRecord[m
+[35mend[m[2;5H[K[3;1H[94m~                                                                               [m[12;1H[1m[7mapp/models/coordinator.rb                                     1,1            All[m[13;1H[35mclass[m [32mRegistry[m < [32mApplicationRecord[m[13;35H[K[14;1H    has_and_belongs_to_many [31m:coordinator[m[14;41H[K[15;1H[35mend[m[15;4H[K[24;1H[7mapp/models/registry.rb [+]                                    2,40           All[1;1H[?12l[?25h[?25l[m[12;63H[1m[7m2,[2;1H[?12l[?25h[?25l[12;65H3 [2;3H[?12l[?25h[?25l[12;63H1,[1;3H[?12l[?25h[?25l[12;63H2,[2;3H[?12l[?25h[?25l[12;63H1,[1;3H[?12l[?25h[?25l[12;65H7 [1;7H[?12l[?25h[?25l[m[32C[35mend[m
+[94m~                                                                               [m[12;27H[1m[7m[+][35C38[1;38H[?12l[?25h[?25l[m[25;1H[1m-- INSERT --[m[25;13H[K[1;1H[K[12;65H[1m[7m1  [1;1H[?12l[?25h[?25l[m[2;1H[K[12;63H[1m[7m2,[2;1H[?12l[?25h[?25l[m[[12;65H[1m[7m2 [2;2H[?12l[?25h[m[25;1H[K[?25l[12;65H[1m[7m1 [2;1H[?12l[?25h[?25l[m[25;1H1 line less; before #2  3 seconds ago[1;1H[35mclass[m [32mCoordinator[m < [32mApplicationRecord[m [35mend[m
+[94m~                                                                               [m[12;63H[1m[7m1,[1;1H[?12l[?25h[?25l[m[25;3Hmore line[10C1  11 seconds ago[1;39H[K[2;1H[35mend[m[2;4H[K[12;27H[1m[7m    [34C7 [1;7H[?12l[?25h[m[12;1H[7mapp/models/coordinator.rb[m[1m[7m [m[7m                                     [?25l1,7            All[m[24;1H[1m[7mapp/models/registry.rb [+]                                    2,40           All[14;40H[?12l[?25h[12;1Happ/models/coordinator.rb                                     [?25l1,7            All[m[24;1H[7mapp/models/registry.rb [+][m[1m[7m [m[7m                                    2,40           All[1;7H[?12l[?25h[?25l[2;11r[m[2;1H[L[1;25r[2;5Hhas_and_belongs_to_many [31m:coordinator[m[12;27H[1m[7m[+][33C2,5 [m[25;1H[K[2;5H[?12l[?25h[?25l[12;65H[1m[7m6 [2;6H[?12l[?25h[?25l[12;65H29[2;29H[?12l[?25h[?25l[12;65H30 [2;30H[?12l[?25h[?25l[m[25;1H[1m-- INSERT --[m[2;29H:[2;30H[K[2;30H[?12l[?25h[?25l[31m:r[m[12;66H[1m[7m1 [2;31H[?12l[?25h[?25l[m[31me[m[12;66H[1m[7m2 [2;32H[?12l[?25h[?25l[m[31mg[m[12;66H[1m[7m3 [2;33H[?12l[?25h[?25l[m[31mi[m[12;66H[1m[7m4 [2;34H[?12l[?25h[?25l[m[31ms[m[12;66H[1m[7m5 [2;35H[?12l[?25h[?25l[m[31mt[m[12;66H[1m[7m6 [2;36H[?12l[?25h[?25l[m[31mr[m[12;66H[1m[7m7 [2;37H[?12l[?25h[?25l[m[31my[m[12;66H[1m[7m8 [2;38H[?12l[?25h[m[25;1H[K[2;37H[?25l[12;66H[1m[7m7 [2;37H[?12l[?25h[?25l[12;66H6 [2;36H[?12l[?25h[?25l[12;66H5 [2;35H[?12l[?25h[?25l[m[25;1H"app/models/coordinator.rb" 3L, 80C written[1;7H[32mRegistry[m < [32mApplicationRecord[m[1;35H[K[2;30H[31mcoordinator[m[12;1H[94m~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [24;1H~                                                                               [m[25;63H2,40[10CAll[25;63H[K[25;63H2,40[10CAll[2;40H[?12l[?25h[?25l[25;13Hregistry.rb" [25;26H[K[25;26H3L, 80C written
+[?1l>[?12l[?25h[?1049l]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails s
+]0;rails s - ~/jobtest=> Booting Puma
+=> Rails 5.1.6 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.11.4 (ruby 2.5.1-p57), codename: Love Song
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:52:36 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.2ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 213ms (Views: 188.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registries/new" for 108.71.83.40 at 2018-06-26 18:52:40 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#new as HTML
+  Rendering registries/new.html.erb within layouts/application
+  Rendered registries/_form.html.erb (19.4ms)
+  Rendered registries/new.html.erb within layouts/application (44.2ms)
+Completed 200 OK in 76ms (Views: 65.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:52:42 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.2ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+C^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2018-06-26 18:52:54 +0000 ===
+- Goodbye!
+Exiting
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails svim app/models/registry.rb [C[C[C[C[C[C[C[C[C[C[Crails db:migrate RAILS_ENV=development[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs[Kdb:migrate RAILS_ENV=development
+]0;rails db:migrate RAILS_ENV=development - ~/jobtest]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rail -v
+]0;rail -v - ~/jobtestNo command 'rail' found, did you mean:
+ Command 'rain' from package 'bsdgames' (universe)
+ Command 'tail' from package 'coreutils' (main)
+ Command 'qail' from package 'qmail' (universe)
+ Command 'rmail' from package 'exim4-daemon-light' (main)
+ Command 'rmail' from package 'postfix' (main)
+ Command 'rmail' from package 'courier-mta' (universe)
+ Command 'rmail' from package 'masqmail' (universe)
+ Command 'rmail' from package 'rmail' (universe)
+ Command 'rmail' from package 'exim4-daemon-heavy' (main)
+ Command 'mail' from package 'mailutils' (universe)
+ Command 'sail' from package 'bsdgames' (universe)
+ Command 'rails' from package 'ruby-railties' (universe)
+rail: command not found
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails -v
+]0;rails -v - ~/jobtestRails 5.1.6
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails gen[K[K migration CreateJoinTableRegistryCoordiator[K[K[K[Knator registries coord inators
+]0;rails g migration CreateJoinTableRegistryCoordinator registries coordinators - ~/jobtestRunning via Spring preloader in process 12984
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20180626185420_create_join_table_registry_coordinator.rb
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails g migration CreateJoinTableRegistryCoordinator registries coordiinators[A]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ [C[C[C[C[C[C-v[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P -vs db:migrate RAILS_ENV=development
+]0;rails db:migrate RAILS_ENV=development - ~/jobtest== 20180626185420 CreateJoinTableRegistryCoordinator: migrating ===============
+-- create_join_table(:registries, :coordinators)
+   -> 0.0025s
+== 20180626185420 CreateJoinTableRegistryCoordinator: migrated (0.0026s) ======
+
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails s
+]0;rails s - ~/jobtest=> Booting Puma
+=> Rails 5.1.6 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.11.4 (ruby 2.5.1-p57), codename: Love Song
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:54:50 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.2ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 176ms (Views: 153.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:54:53 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.3ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/registries/new" for 108.71.83.40 at 2018-06-26 18:54:58 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#new as HTML
+  Rendering registries/new.html.erb within layouts/application
+  Rendered registries/_form.html.erb (22.5ms)
+  Rendered registries/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 65ms (Views: 52.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/registries_coordinators" for 108.71.83.40 at 2018-06-26 18:55:11 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/registries_coordinators"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:55:13 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.3ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2018-06-26 18:55:45 +0000 ===
+- Goodbye!
+Exiting
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails g scaffold Participant name:string gender:[K[K[K[K[K[K[K[K is_fmail[K[K[K[Kemaile:[K[K[K[K[Kl[Kale:boolean dob:date
+]0;rails g scaffold Participant name:string is_female:boolean dob:date - ~/jobtestRunning via Spring preloader in process 13393
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20180626185914_create_participants.rb
+[1m[32m      create[0m    app/models/participant.rb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/models/participant_test.rb
+[1m[32m      create[0m      test/fixtures/participants.yml
+[1m[37m      invoke[0m  resource_route
+[1m[32m       route[0m    resources :participants
+[1m[37m      invoke[0m  scaffold_controller
+[1m[32m      create[0m    app/controllers/participants_controller.rb
+[1m[37m      invoke[0m    erb
+[1m[32m      create[0m      app/views/participants
+[1m[32m      create[0m      app/views/participants/index.html.erb
+[1m[32m      create[0m      app/views/participants/edit.html.erb
+[1m[32m      create[0m      app/views/participants/show.html.erb
+[1m[32m      create[0m      app/views/participants/new.html.erb
+[1m[32m      create[0m      app/views/participants/_form.html.erb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/controllers/participants_controller_test.rb
+[1m[37m      invoke[0m    helper
+[1m[32m      create[0m      app/helpers/participants_helper.rb
+[1m[37m      invoke[0m      test_unit
+[1m[37m      invoke[0m    jbuilder
+[1m[32m      create[0m      app/views/participants/index.json.jbuilder
+[1m[32m      create[0m      app/views/participants/show.json.jbuilder
+[1m[32m      create[0m      app/views/participants/_participant.json.jbuilder
+[1m[37m      invoke[0m  test_unit
+[1m[32m      create[0m    test/system/participants_test.rb
+[1m[37m      invoke[0m  assets
+[1m[37m      invoke[0m    coffee
+[1m[32m      create[0m      app/assets/javascripts/participants.coffee
+[1m[37m      invoke[0m    scss
+[1m[32m      create[0m      app/assets/stylesheets/participants.scss
+[1m[37m      invoke[0m  scss
+[1m[34m   identical[0m    app/assets/stylesheets/scaffolds.scss
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails g scaffold Participant name:string is_female:boolean dob:date[C[C[C[

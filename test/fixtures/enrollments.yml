@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-06-26
+  method: MyString
+  remarks: MyString
+  coordinator: one
+  registry: one
+  participant: one
+
+two:
+  date: 2018-06-26
+  method: MyString
+  remarks: MyString
+  coordinator: two
+  registry: two
+  participant: two
