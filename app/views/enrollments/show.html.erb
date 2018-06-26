@@ -17,17 +17,17 @@
 
 <p>
   <strong>Coordinator:</strong>
-  <%= @enrollment.coordinator %>
+  <%= link_to @enrollment.coordinator.name, @enrollment.coordinator %>
 </p>
 
 <p>
   <strong>Registry:</strong>
-  <%= @enrollment.registry %>
+  <%= link_to @enrollment.registry.name, @enrollment.registry %>
 </p>
 
 <p>
   <strong>Participant:</strong>
-  <%= @enrollment.participant %>
+  <%= link_to @enrollment.participant.name, @enrollment.participant %>
 </p>
 
 <%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |

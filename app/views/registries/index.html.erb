@@ -8,8 +8,8 @@
       <th>Name</th>
       <th>Location</th>
       <th>Is open</th>
-      <th>Coordinators</th>
-      <th colspan="3"></th>
+      <th>#Coords</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -20,6 +20,12 @@
         <td><%= registry.location %></td>
         <td><%= registry.is_open %></td>
         <td><%= registry.coordinators.size %></td>
+        <td><%=
+          if registry.is_open
+            link_to 'Enroll', new_enrollment_path(:registry => registry)
+          else
+            ''
+          end %></td>
         <td><%= link_to 'Show', registry %></td>
         <td><%= link_to 'Edit', edit_registry_path(registry) %></td>
         <td><%= link_to 'Destroy', registry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,3 +37,6 @@
 <br>
 
 <%= link_to 'New Registry', new_registry_path %>
+| <%= link_to 'Coordinators', :controller => :coordinators %>
+| <%= link_to 'Participants', :controller => :participants %>
+| <%= link_to 'Enrollments', :controller => :enrollments %>

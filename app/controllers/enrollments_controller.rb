@@ -14,7 +14,12 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments/new
   def new
+    @registry = Registry.find(params[:registry])
     @enrollment = Enrollment.new
+    @enrollment.registry = @registry
+    @enrollment.date = Time.now
+    @participants = Participant.all - @registry.participants
+    @coordinators = @registry.coordinators
   end
 
   # GET /enrollments/1/edit
@@ -25,6 +30,9 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments.json
   def create
     @enrollment = Enrollment.new(enrollment_params)
+    @registry = @enrollment.registry
+    @participants = Participant.all - @registry.participants
+    @coordinators = @registry.coordinators
 
     respond_to do |format|
       if @enrollment.save

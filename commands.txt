@@ -1774,4 +1774,139 @@ Press ENTER or type command to continue[?1049h[?1h=[27m[23m[m[H[2J[?25l
 ]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ git st
 ]0;git st - ~/jobtest/app/controllersgit: 'st' is not a git command. See 'git --help'.
 
-Did you mean one
+Did you mean one of these?
+	status
+	reset
+	stage
+	stash
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ git status
+]0;git status - ~/jobtest/app/controllersOn branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   registries_controller.rb[m
+	[31mmodified:   ../models/coordinator.rb[m
+	[31mmodified:   ../models/participant.rb[m
+	[31mmodified:   ../models/registry.rb[m
+	[31mmodified:   ../views/registries/edit.html.erb[m
+	[31mmodified:   ../views/registries/index.html.erb[m
+	[31mmodified:   ../views/registries/show.html.erb[m
+	[31mmodified:   ../../commands.txt[m
+	[31mmodified:   ../../db/schema.rb[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31m.registries_controller.rb.swp[m
+	[31m../views/registries/.index.html.erb.swp[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ git commit -am 'Added ability to coordinate[K[K[K[K[K[K[K[K[K[Kadd coordinators to  registries'
+]0;git commit -am 'Added ability to add coordinators to registries' - ~/jobtest/app/controllers[master f8e344b] Added ability to add coordinators to registries
+ 9 files changed, 1176 insertions(+), 6 deletions(-)
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ fg
+]0;fg - ~/jobtest/app/controllersvim registries_controller.rb
+[?1049h[?1h=[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[1;3H[36m<[m[38;5;130mthead[m[36m>
+[m    [36m<[m[38;5;130mtr[m[36m>[3;7H<[m[38;5;130mth[m[36m>[mName[36m</[m[38;5;130mth[m[36m>[4;7H<[m[38;5;130mth[m[36m>[mLocation[36m</[m[38;5;130mth[m[36m>[5;7H<[m[38;5;130mth[m[36m>[mIs open[36m</[m[38;5;130mth[m[36m>[6;7H<[m[38;5;130mth[m[36m>[mCoordinators[36m</[m[38;5;130mth[m[36m>[7;7H<[m[38;5;130mth[m[36m [m[32mcolspan[m[36m=[m[31m"3"[m[36m></[m[38;5;130mth[m[36m>
+[m    [36m</[m[38;5;130mtr[m[36m>
+[m  [36m</[m[38;5;130mthead[m[36m>
+
+[m  [36m<[m[38;5;130mtbody[m[36m>[m
+    [35m<%[m [36m@registries[m.each [38;5;130mdo[m |[36mregistry[m| [35m%>[m[13;7H[36m<[m[38;5;130mtr[m[36m>[14;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m registry.name [35m%>[m[36m</[m[38;5;130mtd[m[36m>[15;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m registry.location [35m%>[m[36m</[m[38;5;130mtd[m[36m>[16;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m registry.is_open [35m%>[m[36m</[m[38;5;130mtd[m[36m>[17;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m registry.coordinators.size [35m%>[m[36m</[m[38;5;130mtd[m[36m>[18;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m link_to [35m'[m[31mShow[m[35m'[m, registry [35m%>[m[36m</[m[38;5;130mtd[m[36m>[19;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m link_to [35m'[m[31mEdit[m[35m'[m, edit_registry_path(registry) [35m%>[m[36m</[m[38;5;130mtd[m[36m>[20;9H<[m[38;5;130mtd[m[36m>[m[35m<%=[m link_to [35m'[m[31mDestroy[m[35m'[m, registry, [31mmethod[m: [31m:delete[m, [31mdata[m: { [31mconfirm[m: [35m''[m[21;1H[31mAre you sure?[m[35m'[m } [35m%>[m[36m</[m[38;5;130mtd[m[36m>[22;7H</[m[38;5;130mtr[m[36m>[m
+[1m[7m../views/registries/index.html.erb                            23,48          41%[m[24;1H[35mclass[m [32mRegistriesController[m < [32mApplicationController[m
+  before_action [31m:set_registry[m, [31monly[m: [[31m:show[m, [31m:edit[m, [31m:update[m, [31m:destroy[m]
+
+  [34m# GET /registries
+[m  [34m# GET /registries.json[m
+  [35mdef[m [36mindex
+[m    [36m@registries[m = [32mRegistry[m.all [35mend[m
+
+  [34m# GET /registries/1
+[m  [34m# GET /registries/1.json[m
+  [35mdef[m [36mshow
+[m    [36m@coordinators[m = [36m@registry[m.coordinators
+  [35mend[m
+
+  [34m# GET /registries/new[m
+  [35mdef[m [36mnew
+[m    [36m@registry[m = [32mRegistry[m.new
+  [35mend[m
+
+  [34m# GET /registries/1/edit[m
+  [35mdef[m [36medit
+[m    [36m@all_coordinators[m = [32mCoordinator[m.all
+[7mregistries_controller.rb [+]                                  8,0-1          Top[18;48H[?12l[?25h[?25l[m[23;64H[1m[7m4,50 [19;50H[?12l[?25h[?25l[23;64H3,48 [18;48H[?12l[?25h[m[23;1H[7m../views/registries/index.html.erb[m[1m[7m [m[7m                            [?25l23,48          41%[m[46;1H[1m[7mregistries_controller.rb [+]                                  8,0-1          Top[31;1H[?12l[?25h[?25l[47;1H[m:[?12l[?25hw[?25l[?12l[?25h[?25l"registries_controller.rb" 76L, 2112C written[46;26H[1m[7m    [31;1H[?12l[?25h[?25l[m[47;1H1 more line; before #32  20:04:54[47;34H[K[31;45r[31;1H[L[1;47r[30;32H[K[31;3H[35mend[m[46;26H[1m[7m[+][34C7,5   [m[47;1H[K[30;5H[?12l[?25h[?25l[47;1H:[?12l[?25hw[?25l[?12l[?25h[?25l"registries_controller.rb" 77L, 2114C written[46;26H[1m[7m    [30;5H[?12l[?25h[?25l[m[47;1H[K[47;1H:[?12l[?25hq[?25l[?12l[?25h[?25l[1;1H[36m<[m[38;5;130mp[m[36m [m[32mid[m[36m=[m[31m"notice"[m[36m>[m[35m<%=[m notice [35m%>[m[36m</[m[38;5;130mp[m[36m>[m[2;5H[K[3;1H[36m<[m[38;5;130mh1[m[36m>[m[35mRegistries[m[2C[38;5;130mh1[m[4;7H[K[5;1H[36m<[m[38;5;130mtable[m[36m>[m[5;8H[K[6;3H[36m<[m[38;5;130mthead[m[36m>[m[6;10H[K[7;5H[36m<[m[38;5;130mtr[m[36m>[m[7;9H[K[8;5H  [36m<[m[38;5;130mth[m[36m>[mName[36m</[m[38;5;130mth[m[36m>[m
+      [36m<[m[38;5;130mth[m[1CLocation[36m</[m[38;5;130mth[m[36m>[10;7H<[m[38;5;130mth[m[36m>[mIs open[36m</[m[38;5;130mth[m[36m>[m
+      [36m<[m[38;5;130mth[m[36m>[mCoordinators[36m</[m[38;5;130mth[m[36m>[m
+      [36m<[m[38;5;130mth[m[36m [m[32mcolspan[m[36m=[m[31m"3"[m[36m></[m[38;5;130mth[m[36m>[m[12;28H[K[13;5H[36m</[m[38;5;130mtr[m[36m>[m[13;10H[K[14;3H[36m</[m[38;5;130mthead[m[36m>[m[14;11H[K[15;9H[K[16;3H[36m<[m[38;5;130mtbody[m[36m>[m[16;10H[K[17;5H[35m<%[m [36m@registries[m.each [38;5;130mdo[m |[36mregistry[m| [35m%>[m[17;41H[K[18;7H[36m<[m[38;5;130mtr[m[36m>[m[18;11H[K[19;17Hregistry.name [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m[19;38H[K[20;17Hregistry.location [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m[20;42H[K[21;1H        [36m<[m[38;5;130mtd[m[36m>[m[35m<%=[m registry.is_open [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m[22;7H  [36m<[m[38;5;130mtd[m[36m>[m[35m<%=[m registry.coordinators.size [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m
+        [36m<[m[38;5;130mtd[m[36m>[m[35m<%=[m link_to [35m'[m[31mShow[m[35m'[m, registry [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m[23;49H[K[24;1H        [36m<[m[38;5;130mtd[m[36m>[m[35m<%=[m link_to [35m'[m[31mEdit[m[35m'[m, edit_registry_path(registry) [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m
+        [36m<[m[38;5;130mtd[m[36m>[m[35m<%=[m link_to [35m'[m[31mDestroy[m[35m'[m, registry, [31mmethod[m: [31m:delete[m, [1C[31mata[m: { [31mconfirm[m: [35m''[m[26;1H[31mAre you sure?[m[35m'[m } [35m%>[m[36m</[m[38;5;130mtd[m[36m>[m
+      [36m</[m[38;5;130mtr[m[36m>[m[27;12H[K[28;3H  [35m<%[m [38;5;130mend[m [35m%>[m[28;14H[K[29;3H[36m</[m[38;5;130mtbody[m[36m>[m[29;11H[K[30;1H[36m</[m[38;5;130mtable[m[36m>[m[30;9H[K[31;3H[K[32;1H[36m<[m[38;5;130mbr[m[36m>[m[33;3H[K[34;1H[35m<%=[m link_to [35m'[m[31mNew Registry[m[35m'[m, new_registry_path [35m%>[m
+[94m~                                                                               [36;1H~                                                                               [37;1H~                                                                               [38;1H~                                                                               [39;1H~                                                                               [40;1H~                                                                               [41;1H~                                                                               [42;1H~                                                                               [43;1H~                                                                               [44;1H~                                                                               [45;1H~                                                                               [46;1H~                                                                               [m[47;63H23,48[9CAll[23;48H[?12l[?25h[?25l[47;1H[1m-- INSERT --[m[47;63H[K[47;63H22,51[9CAll[22;51H[?12l[?25h[?25l[[47;67H2[22;52H[?12l[?25h[?25lU[47;67H3[22;53H[?12l[?25h[?25l[22;52H[K[47;67H2[22;52H[?12l[?25h[?25l[22;51H[K[47;67H1[22;51H[?12l[?25h[47;1H[K[22;50H[?25l[47;63H22,50[9CAll[22;50H[?12l[?25h[?25l[47;63H[K[47;1H:[?12l[?25hq[?25l[?12l[?25h[?25l[97m[41mE37: No write since last change (add ! to override)[m[11C22,50[9CAll[22;50H[?12l[?25h[?25l[47;1H[1m-- INSERT --[m[47;13H[K[47;63H22,51[9CAll[22;51H[?12l[?25h[47;1H[K[22;50H[?25l[47;63H22,50[9CAll[22;50H[?12l[?25h[?25l[47;63H[K[47;1H:[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l[?1l>[?12l[?25h[?1049l
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ git st
+]0;git st - ~/jobtest/app/controllersgit: 'st' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	status
+	reset
+	stage
+	stash
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ git status
+]0;git status - ~/jobtest/app/controllersOn branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   ../../commands.txt[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ git diff
+]0;git diff - ~/jobtest/app/controllers[?1h=[1mdiff --git a/commands.txt b/commands.txt[m[m
+[1mindex b3205cf..7eabe2d 100644[m[m
+[1m--- a/commands.txt[m[m
+[1m+++ b/commands.txt[m[m
+[36m@@ -1774,4 +1774,73 @@[m [mPress ENTER or type command to continue[27m[23m[m[m[m
+ 0;tmux_save_session - ~/jobtest/app/controllers[7m^G[27m0;~/jobtest/app/controllers[7m^G[27m[01;32m[00m[01;34m~[m [01;32m[00m[01;34m/jobtest/app/controllers[00m$ git st[m[m
+ 0;git st - ~/jobtest/app/controllers[7m^G[27mgit: 'st' is not a git command. See 'git [m --help'.[m[m
+ [m[m
+[31m-Did you mean one[m[m
+\ No newline at end of file[m[m
+[32m+[m[32mDid you mean one of these?[m[41m[7m^M[27m[m[m
+[32m+[m       [32mstatus[m[41m[7m^M[27m[m[m
+[32m+[m       [32mreset[m[41m[7m^M[27m[m[m
+[32m+[m       [32mstage[m[41m[7m^M[27m[m[m
+[32m+[m       [32mstash[m[41m[7m^M[27m[m[m
+[32m+[m[32m0;tmux_save_session - ~/jobtest/app/controllers[7m^G[27m0;~/jobtest/app/controllers[7m^G[27m[01;32m[00m[01;34m~[m [32m[m[32m[01;32m[00m[01;34m/jobtest/app/controllers[00m$ git status[m[41m[7m^M[27m[m[m
+[32m+[m[32m0;git status - ~/jobtest/app/controllers[7m^G[27mOn branch master[m[41m[7m^M[27m[m[m
+[32m+[m[32mChanges not staged for commit:[m[41m[7m^M[27m[m[m
+[32m+[m[32m  (use "git add <file>..." to update what will be committed)[m[41m[7m^M[27m[m[m
+[32m+[m[32m  (use "git checkout -- <file>..." to discard changes in working directory)[m[41m[7m^M[27m[m[m
+[32m+[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   registries_controller.rb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../models/coordinator.rb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../models/participant.rb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../models/registry.rb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../views/registries/edit.html.erb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../views/registries/index.html.erb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../views/registries/show.html.erb[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../../commands.txt[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31mmodified:   ../../db/schema.rb[m[m[41m[7m^M[27m[m[m
+[32m+[m[41m[7m^M[27m[m[m
+[32m+[m[32mUntracked files:[m[41m[7m^M[27m[m[m
+[32m+[m[32m  (use "git add <file>..." to include in what will be committed)[m[41m[7m^M[27m[m[m
+[32m+[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31m.registries_controller.rb.swp[m[m[41m[7m^M[27m[m[m
+[32m+[m       [32m[31m../views/registries/.index.html.erb.swp[m[m[41m[7m^M[27m[m[m
+[32m+[m[41m[7m^M[27m[m[m
+[32m+[m[32mno changes added to commit (use "git add" and/or "git commit -a")[m[41m[7m^M[27m[m[m
+[32m+[m[32m0;tmux_save_session - ~/jobtest/app/controllers[7m^G[27m0;~/jobtest/app/controllers[7m^G[27m[01;32m[00m[01;34m~[m [32m[m[32m[01;32m[00m[01;34m/jobtest/app/controllers[00m$ git commit -am 'Added ability to add coordinators to  [m [32m[m[32m[01;32m[00m[01;34m[00m[7m^M[27mregistries'[m[41m[7m^M[27m[m[m
+[32m+[m[32m0;git commit -am 'Added ability to add coordinators to registries' - ~/jobtest/[m [32m[m[32mapp/controllers[7m^G[27m[master f8e344b] Added ability to add coordinators to registrie[m :[K[K[?1l>]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ ls [K[K[Kwc -l com[K[K[K../../commands.txt 
+]0;wc -l ../../commands.txt - ~/jobtest/app/controllers1883 ../../commands.txt
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ ls
+]0;ls --color=auto - ~/jobtest/app/controllersapplication_controller.rb   enrollments_controller.rb
+[0m[01;34mconcerns[0m                    participants_controller.rb
+coordinators_controller.rb  registries_controller.rb
+]0;tmux_save_session - ~/jobtest/app/controllers]0;~/jobtest/app/controllers[01;32m[00m[01;34m~/jobtest/app/controllers[00m$ D[Kexit
+]0;ls --color=auto - ~/jobtest/app/controllers
+Script done on Tue 26 Jun 2018 08:08:53 PM UTC

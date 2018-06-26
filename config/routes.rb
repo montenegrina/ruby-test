@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'registries#index'
   resources :enrollments
   resources :participants
   resources :coordinators

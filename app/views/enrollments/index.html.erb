@@ -21,9 +21,9 @@
         <td><%= enrollment.date %></td>
         <td><%= enrollment.method %></td>
         <td><%= enrollment.remarks %></td>
-        <td><%= enrollment.coordinator %></td>
-        <td><%= enrollment.registry %></td>
-        <td><%= enrollment.participant %></td>
+        <td><%= link_to enrollment.coordinator.name, enrollment.coordinator %></td>
+        <td><%= link_to enrollment.registry.name, enrollment.registry %></td>
+        <td><%= link_to enrollment.participant.name, enrollment.participant %></td>
         <td><%= link_to 'Show', enrollment %></td>
         <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
         <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,6 +32,8 @@
   </tbody>
 </table>
 
-<br>
+<%= link_to 'Registries', :controller => :registries %>
+| <%= link_to 'Participants', :controller => :participants %>
+| <%= link_to 'Coordinators', :controller => :coordinators %>
 
-<%= link_to 'New Enrollment', new_enrollment_path %>
+<br>

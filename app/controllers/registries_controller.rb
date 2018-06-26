@@ -10,8 +10,18 @@ class RegistriesController < ApplicationController
   # GET /registries/1
   # GET /registries/1.json
   def show
-    @coordinators = @registry.coordinators
-  end
+    @coordinators_participants = []
+    for coordinator in @registry.coordinators
+      participants = []
+      for enrollment in coordinator.enrollments
+        if enrollment.registry == @registry
+          participants << enrollment.participant
+        end
+      end
+      entry = {:coordinator => coordinator, :participants => participants}
+      @coordinators_participants << entry
+    end
+  end 
 
   # GET /registries/new
   def new

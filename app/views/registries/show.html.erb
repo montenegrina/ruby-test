@@ -16,12 +16,26 @@
 </p>
 
 <p>
-  <strong>Coordinators:</strong>
+  <strong>This registry's enrolled participants, by coordinator:</strong>
   <ul>
-    <% for coordinator in @coordinators %>
+    <% for entry in @coordinators_participants %>
       <li><%=
-        link_to coordinator.name, edit_coordinator_path(coordinator)
-      %></li>
+        link_to entry[:coordinator].name,
+                :controller => :coordinators,
+                :action => :show,
+                :id => entry[:coordinator].id
+      %>
+        <ul>
+          <% for participant in entry[:participants] %>
+            <li><%=
+              link_to participant.name,
+                :controller => :participants,
+                :action => :show,
+                :id => participant.id
+            %></li>
+          <% end %>
+        </ul>
+      </li>
     <% end %>
   </ul>
 </p>
