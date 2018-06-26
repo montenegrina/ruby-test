@@ -1,0 +1,64 @@
+Script started on Tue 26 Jun 2018 06:44:55 PM UTC
+]0;export PATH="${PATH}:$HOME/go/bin" - ~/jobtest]0;export BROWSER=/usr/local/bin/paizacloud-open-browser - ~/jobtest]0;export PIP_USER=true - ~/jobtest]0;export PATH="${PATH}:${HOME}/.local/bin" - ~/jobtest]0;alias python='python3' - ~/jobtest]0;alias pip='pip3' - ~/jobtest]0;NPM_PACKAGES=${HOME}/.npm-packages - ~/jobtest]0;export NPM_CONFIG_PREFIX=$NPM_PACKAGES - ~/jobtest]0;export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH" - ~/jobtest]0;export PATH="${PATH}:${NPM_PACKAGES}/bin" - ~/jobtest]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails generate scaffod[Kld Registry name:string location:string is_open: boolean
+]0;rails generate scaffold Registry name:string location:string is_open:boolean - ~/jobtestRunning via Spring preloader in process 11868
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20180626184514_create_registries.rb
+[1m[32m      create[0m    app/models/registry.rb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/models/registry_test.rb
+[1m[32m      create[0m      test/fixtures/registries.yml
+[1m[37m      invoke[0m  resource_route
+[1m[32m       route[0m    resources :registries
+[1m[37m      invoke[0m  scaffold_controller
+[1m[32m      create[0m    app/controllers/registries_controller.rb
+[1m[37m      invoke[0m    erb
+[1m[32m      create[0m      app/views/registries
+[1m[32m      create[0m      app/views/registries/index.html.erb
+[1m[32m      create[0m      app/views/registries/edit.html.erb
+[1m[32m      create[0m      app/views/registries/show.html.erb
+[1m[32m      create[0m      app/views/registries/new.html.erb
+[1m[32m      create[0m      app/views/registries/_form.html.erb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/controllers/registries_controller_test.rb
+[1m[37m      invoke[0m    helper
+[1m[32m      create[0m      app/helpers/registries_helper.rb
+[1m[37m      invoke[0m      test_unit
+[1m[37m      invoke[0m    jbuilder
+[1m[32m      create[0m      app/views/registries/index.json.jbuilder
+[1m[32m      create[0m      app/views/registries/show.json.jbuilder
+[1m[32m      create[0m      app/views/registries/_registry.json.jbuilder
+[1m[37m      invoke[0m  test_unit
+[1m[32m      create[0m    test/system/registries_test.rb
+[1m[37m      invoke[0m  assets
+[1m[37m      invoke[0m    coffee
+[1m[32m      create[0m      app/assets/javascripts/registries.coffee
+[1m[37m      invoke[0m    scss
+[1m[32m      create[0m      app/assets/stylesheets/registries.scss
+[1m[37m      invoke[0m  scss
+[1m[32m      create[0m    app/assets/stylesheets/scaffolds.scss
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ ls
+]0;ls --color=auto - ~/jobtest[0m[01;34mapp[0m           [01;34mconfig[0m     Gemfile       [01;34mlog[0m           Rakefile   [01;34mtmp[0m
+[01;34mbin[0m           config.ru  Gemfile.lock  package.json  README.md  [01;34mvendor[0m
+commands.txt  [01;34mdb[0m         [01;34mlib[0m           [01;34mpublic[0m        [01;34mtest[0m
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git st
+]0;git st - ~/jobtestgit: 'st' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	status
+	reset
+	stage
+	stash
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git status
+]0;git status - ~/jobtestOn branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   config/routes.rb[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mapp/assets/javascripts/registries.coffee[m
+	[31mapp/assets/stylesheets/registries.scss[m
+	[31mapp/assets/stylesheets/scaffolds.scss[
