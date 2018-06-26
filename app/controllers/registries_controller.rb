@@ -10,6 +10,7 @@ class RegistriesController < ApplicationController
   # GET /registries/1
   # GET /registries/1.json
   def show
+    @coordinators = @registry.coordinators
   end
 
   # GET /registries/new
@@ -19,6 +20,7 @@ class RegistriesController < ApplicationController
 
   # GET /registries/1/edit
   def edit
+    @all_coordinators = Coordinator.all
   end
 
   # POST /registries
@@ -69,6 +71,7 @@ class RegistriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registry_params
-      params.require(:registry).permit(:name, :location, :is_open)
+      params.require(:registry).permit(:name, :location, :is_open,
+                                       :coordinator_ids => [])
     end
 end

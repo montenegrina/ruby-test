@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180626185420) do
+ActiveRecord::Schema.define(version: 20180626190042) do
 
   create_table "coordinators", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 20180626185420) do
   create_table "coordinators_registries", id: false, force: :cascade do |t|
     t.integer "registry_id", null: false
     t.integer "coordinator_id", null: false
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.date "date"
+    t.string "method"
+    t.string "remarks"
+    t.integer "coordinator_id"
+    t.integer "registry_id"
+    t.integer "participant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coordinator_id"], name: "index_enrollments_on_coordinator_id"
+    t.index ["participant_id"], name: "index_enrollments_on_participant_id"
+    t.index ["registry_id"], name: "index_enrollments_on_registry_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_female"
+    t.date "dob"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "registries", force: :cascade do |t|

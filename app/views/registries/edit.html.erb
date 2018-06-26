@@ -1,6 +1,20 @@
 <h1>Editing Registry</h1>
 
-<%= render 'form', registry: @registry %>
+<%= form_for(@registry) do |f| %>
+  <%= f.label(:name, 'Name') %>
+  <%= f.text_field :name %>
+  <%= f.label(:location, 'Location') %>
+  <%= f.text_field :location %>
+  <%= f.label(:is_open, 'Is open') %>
+  <%= f.check_box :is_open %>
+  <%= f.label(:coordinator_ids, 'Coordinators') %>
+  <%= f.select(:coordinator_ids,
+               @all_coordinators.map {|c| [c.name, c.id]},
+	       {},
+               { :multiple => true, :size => 5 }) %>
+  <br>
+  <%= f.submit "Save" %>
+<% end %>
 
 <%= link_to 'Show', @registry %> |
 <%= link_to 'Back', registries_path %>

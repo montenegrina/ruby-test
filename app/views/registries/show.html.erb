@@ -15,5 +15,16 @@
   <%= @registry.is_open %>
 </p>
 
+<p>
+  <strong>Coordinators:</strong>
+  <ul>
+    <% for coordinator in @coordinators %>
+      <li><%=
+        link_to coordinator.name, edit_coordinator_path(coordinator)
+      %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_registry_path(@registry) %> |
 <%= link_to 'Back', registries_path %>
