@@ -61,4 +61,268 @@ Untracked files:
 
 	[31mapp/assets/javascripts/registries.coffee[m
 	[31mapp/assets/stylesheets/registries.scss[m
-	[31mapp/assets/stylesheets/scaffolds.scss[
+	[31mapp/assets/stylesheets/scaffolds.scss[m
+	[31mapp/controllers/registries_controller.rb[m
+	[31mapp/helpers/registries_helper.rb[m
+	[31mapp/models/registry.rb[m
+	[31mapp/views/registries/[m
+	[31mcommands.txt[m
+	[31mdb/migrate/[m
+	[31mtest/controllers/registries_controller_test.rb[m
+	[31mtest/fixtures/registries.yml[m
+	[31mtest/models/registry_test.rb[m
+	[31mtest/system/registries_test.rb[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git c[Kadd .
+]0;git add . - ~/jobtest]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git st
+]0;git st - ~/jobtestgit: 'st' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	status
+	reset
+	stage
+	stash
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ gi[K[Kgit c[Kstatus
+]0;git status - ~/jobtestOn branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	[32mnew file:   app/assets/javascripts/registries.coffee[m
+	[32mnew file:   app/assets/stylesheets/registries.scss[m
+	[32mnew file:   app/assets/stylesheets/scaffolds.scss[m
+	[32mnew file:   app/controllers/registries_controller.rb[m
+	[32mnew file:   app/helpers/registries_helper.rb[m
+	[32mnew file:   app/models/registry.rb[m
+	[32mnew file:   app/views/registries/_form.html.erb[m
+	[32mnew file:   app/views/registries/_registry.json.jbuilder[m
+	[32mnew file:   app/views/registries/edit.html.erb[m
+	[32mnew file:   app/views/registries/index.html.erb[m
+	[32mnew file:   app/views/registries/index.json.jbuilder[m
+	[32mnew file:   app/views/registries/new.html.erb[m
+	[32mnew file:   app/views/registries/show.html.erb[m
+	[32mnew file:   app/views/registries/show.json.jbuilder[m
+	[32mnew file:   commands.txt[m
+	[32mmodified:   config/routes.rb[m
+	[32mnew file:   db/migrate/20180626184514_create_registries.rb[m
+	[32mnew file:   test/controllers/registries_controller_test.rb[m
+	[32mnew file:   test/fixtures/registries.yml[m
+	[32mnew file:   test/models/registry_test.rb[m
+	[32mnew file:   test/system/registries_test.rb[m
+
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ git ca -m 'A[KCreated Regsit[K[K[Kistry model[K[K[K[K[K[Ksc[K[K scaffold'
+]0;git ca -m 'Created Registry scaffold' - ~/jobtestgit: 'ca' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+	clean
+	tag
+	var
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ [Kgit ca -m 'Created Registry scaffold'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@o[1@m[1@m[1@i[1@t[C[C[1@a
+]0;git commit -am 'Created Registry scaffold' - ~/jobtest[master 833f2e9] Created Registry scaffold
+ 21 files changed, 416 insertions(+)
+ create mode 100644 app/assets/javascripts/registries.coffee
+ create mode 100644 app/assets/stylesheets/registries.scss
+ create mode 100644 app/assets/stylesheets/scaffolds.scss
+ create mode 100644 app/controllers/registries_controller.rb
+ create mode 100644 app/helpers/registries_helper.rb
+ create mode 100644 app/models/registry.rb
+ create mode 100644 app/views/registries/_form.html.erb
+ create mode 100644 app/views/registries/_registry.json.jbuilder
+ create mode 100644 app/views/registries/edit.html.erb
+ create mode 100644 app/views/registries/index.html.erb
+ create mode 100644 app/views/registries/index.json.jbuilder
+ create mode 100644 app/views/registries/new.html.erb
+ create mode 100644 app/views/registries/show.html.erb
+ create mode 100644 app/views/registries/show.json.jbuilder
+ create mode 100644 commands.txt
+ create mode 100644 db/migrate/20180626184514_create_registries.rb
+ create mode 100644 test/controllers/registries_controller_test.rb
+ create mode 100644 test/fixtures/registries.yml
+ create mode 100644 test/models/registry_test.rb
+ create mode 100644 test/system/registries_test.rb
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails s
+]0;rails s - ~/jobtest=> Booting Puma
+=> Rails 5.1.6 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.11.4 (ruby 2.5.1-p57), codename: Love Song
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/" for 108.71.83.40 at 2018-06-26 18:46:34 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2018-06-26 18:46:47 +0000 ===
+- Goodbye!
+Exiting
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ /[K/[Krails db:migrate RAILS_ENV=development
+]0;rails db:migrate RAILS_ENV=development - ~/jobtest== 20180626184514 CreateRegistries: migrating =================================
+-- create_table(:registries)
+   -> 0.0010s
+== 20180626184514 CreateRegistries: migrated (0.0011s) ========================
+
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails s
+]0;rails s - ~/jobtest=> Booting Puma
+=> Rails 5.1.6 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.11.4 (ruby 2.5.1-p57), codename: Love Song
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/" for 108.71.83.40 at 2018-06-26 18:47:22 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 17ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:47:37 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.1ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 509ms (Views: 505.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/registries/new" for 108.71.83.40 at 2018-06-26 18:47:46 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#new as HTML
+  Rendering registries/new.html.erb within layouts/application
+  Rendered registries/_form.html.erb (21.3ms)
+  Rendered registries/new.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 48ms (Views: 39.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/registries" for 108.71.83.40 at 2018-06-26 18:47:54 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T8ag/LzJOZ7he4WJYS9zOfuN9Lbr1OOtq3LQ/g50VZzRHDYrnQJFZ2JjjWGMaW6Ngwx30a3rOQ8koCVZlGRN5w==", "registry"=>{"name"=>"Registry A", "location"=>"here", "is_open"=>"1"}, "commit"=>"Create Registry"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "registries" ("name", "location", "is_open", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Registry A"], ["location", "here"], ["is_open", "t"], ["created_at", "2018-06-26 18:47:54.655497"], ["updated_at", "2018-06-26 18:47:54.655497"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://sokovic-anamarija-1.paiza-user.cloud:3000/registries/1
+Completed 302 Found in 11ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/registries/1" for 108.71.83.40 at 2018-06-26 18:47:55 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistry Load (0.4ms)[0m  [1m[34mSELECT  "registries".* FROM "registries" WHERE "registries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering registries/show.html.erb within layouts/application
+  Rendered registries/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 24.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:47:57 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.2ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/registries/1" for 108.71.83.40 at 2018-06-26 18:48:01 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eC13otV8IrCLPmA3K7mtjNFUFCUoFbeoJh3xntjaOOZAmE1d5ge1Wul9fwihNlfH7kRMuypJ3VDp2pkaRaYKNg==", "id"=>"1"}
+  [1m[36mRegistry Load (0.3ms)[0m  [1m[34mSELECT  "registries".* FROM "registries" WHERE "registries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "registries" WHERE "registries"."id" = ?[0m  [["id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://sokovic-anamarija-1.paiza-user.cloud:3000/registries
+Completed 302 Found in 14ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/registries" for 108.71.83.40 at 2018-06-26 18:48:01 +0000
+Cannot render console from 108.71.83.40! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RegistriesController#index as HTML
+  Rendering registries/index.html.erb within layouts/application
+  [1m[36mRegistry Load (0.3ms)[0m  [1m[34mSELECT "registries".* FROM "registries"[0m
+  Rendered registries/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 32ms (Views: 29.6ms | ActiveRecord: 0.3ms)
+
+
+C^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2018-06-26 18:48:06 +0000 ===
+- Goodbye!
+Exiting
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ 
+]0;tmux_save_session - ~/jobtest]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ rails s[Krails sdb:migrate RAILS_ENV=development[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs[Kgit commit -am 'Created Registry scaffold'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pa -[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cstatus[K[Kadd .status[K[4Plsrails generate scaffold Registry name:string location:string is_open:bboolean[C[C[C[C[A]0;~/jobtest[01;32m[00m[01;34m~/jobtest[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[Kscaffold Coordinator name:string phone:string
+]0;rails generate scaffold Coordinator name:string phone:string - ~/jobtestRunning via Spring preloader in process 12337
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20180626184841_create_coordinators.rb
+[1m[32m      create[0m    app/models/coordinator.rb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/models/coordinator_test.rb
+[1m[32m      create[0m      test/fixtures/coordinators.yml
+[1m[37m      invoke[0m  resource_route
+[1m[32m       route[0m    resources :coordinators
+[1m[37m      invoke[0m  scaffold_controller
+[1m[32m      create[0m    app/controllers/coordinators_controller.rb
+[1m[37m      invoke[0m    erb
+[1m[32m      create[0m      app/views/coordinators
+[1m[32m      create[0m      app/views/coordinators/index.html.erb
+[1m[32m      create[0m      app/views/coordinators/edit.html.erb
+[1m[32m      create[0m      app/views/coordinators/show.html.erb
+[1m[32m      create[0m      app/views/coordinators/new.html.erb
+[1m[32m      create[0m      app/views/coordinators/_form.html.erb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/controllers/coordinators_controller_test.rb
+[1m[37m      invoke[0m    helper
+[1m[32m      create[0m      app/helpers/coordinators_helper.rb
+[1m[37m      invoke[0m      test_unit
+[1m[37m      invoke[0m    jbuilder
+[1m[32m      create[0m      app/views/coordinators/index.json.jbuilder
+[1m[32m      create[0m      app/views/coordinators/show.json.jbuilder
+[1m[32m      create[0m      app/views/coordin
